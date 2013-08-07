@@ -1,6 +1,7 @@
 package org.openstreetmap.josm.plugins.sumoconvert;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.Relation;
@@ -20,11 +21,13 @@ public class SumoConvertPlugin extends Plugin{
     
     private final ArrayList<Relation> turnrestrictions = new ArrayList<Relation>();
     private SumoExportAction exportAction;
+    static Properties sumoConvertProperties = new Properties();
     
     public SumoConvertPlugin(PluginInformation info) {
         super(info);
         exportAction = new SumoExportAction();
         Main.main.menu.toolsMenu.add(exportAction);
+        System.out.println("llegaaaa");
     }
     
     /**
@@ -38,6 +41,7 @@ public class SumoConvertPlugin extends Plugin{
             //add the dialog
             //newFrame.addToggleDialog(dialog);
             //CreateOrEditTurnRestrictionAction.getInstance();
+            System.out.println("cargooooo");
         }
     }
 

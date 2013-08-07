@@ -12,21 +12,22 @@ import org.openstreetmap.josm.io.OsmTransferException;
 import org.xml.sax.SAXException;
 
 /**
- * @author Ignacio Palermo - Julio Rivera
+ * @author ignacio_palermo
  *
  */
-
 public class ExportTask extends PleaseWaitRunnable {
 
     static Properties sumoConvertProperties = new Properties();
     
     public ExportTask() {
         super("sumoexport");
-        try {
+        try{
             sumoConvertProperties.load(ExportTask.class.getResourceAsStream("/resources/properties/sumoConvert.properties"));
-        } catch (IOException e) {
+            }
+        catch(IOException e){
             e.printStackTrace();
         }
+        // TODO Auto-generated constructor stub
     }
 
     /* (non-Javadoc)
@@ -55,13 +56,14 @@ public class ExportTask extends PleaseWaitRunnable {
             OsmTransferException {
         
         try {
-            Runtime.getRuntime().exec(sumoConvertProperties.getProperty("resources") +
-                                      sumoConvertProperties.getProperty("netconvert") +
-                                      sumoConvertProperties.getProperty("netconvert.osmfiles") +
-                                      sumoConvertProperties.getProperty("plainoutput"),
-                                      null, 
-                                      new File("E:\\Users\\ignacio_palermo\\Documents\\Facultad\\Tesis\\sumo-0.15.0\\bin")
-            ); 			
+            
+            String cmd = sumoConvertProperties.getProperty("resources") + 
+                    sumoConvertProperties.getProperty("netconvert") + 
+                    sumoConvertProperties.getProperty("netconvert.osmfiles") + " tandil-map.osm" + 
+                    sumoConvertProperties.getProperty("netconvert.plainoutputprefix") + " tandil-test";
+            System.out.println(cmd);
+            Runtime.getRuntime().exec(cmd, null, new File("../")); 	
+            System.out.println("conversion realizada");
         } catch (IOException e) {
              e.printStackTrace();
             }

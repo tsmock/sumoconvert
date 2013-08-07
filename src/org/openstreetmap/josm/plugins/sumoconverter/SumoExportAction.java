@@ -23,10 +23,10 @@ import org.openstreetmap.josm.tools.Shortcut;
 public class SumoExportAction extends JosmAction {
     
     public SumoExportAction(){
-        super(tr("OSM Export"), "images/dialogs/logo-sumo.png",
+        super(tr("OSM Export"), "images/dialogs/logo-sumo-24x24.png",
         tr("Export traffic data to SUMO network file."),
         Shortcut.registerShortcut("menu:sumoexport", tr("Menu: {0}", tr("SUMO Export")),
-        KeyEvent.VK_G, Shortcut.ALT_CTRL), false);
+        KeyEvent.VK_G, Shortcut.ALT_CTRL), true);
     }
 
     /* (non-Javadoc)
